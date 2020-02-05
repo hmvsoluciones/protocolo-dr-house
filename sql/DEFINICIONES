@@ -1,0 +1,9 @@
+
+
+ROLES:
+    ADMIN:
+        Users
+        Catalogs
+
+    REPORTS:
+        Catalogs
