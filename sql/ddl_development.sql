@@ -5,9 +5,12 @@
  */
 /**
  * Author:  SISTEMAS
- * Created: 27/08/2018
+ * Created: 11/02/2020
  */
 
+drop database php_monolitic_skeleton;
+create database php_monolitic_skeleton;
+use php_monolitic_skeleton;
 
 CREATE TABLE admuser (
                 IDUSER BIGINT AUTO_INCREMENT NOT NULL,
@@ -83,23 +86,16 @@ CREATE INDEX menu_submenu_fk USING BTREE
  ON submenu
  ( IDMENU ASC );
 
-CREATE TABLE catalogos (
-                idCatalogo INT AUTO_INCREMENT NOT NULL,
-                ClaveRubroCATS VARCHAR(8),
-                ClaveEntidadCATS VARCHAR(8),
-                EstatusRegistroCATS VARCHAR(1),
-                DescripcionCATS VARCHAR(53),
-                ClaveJustificadaCATS VARCHAR(1),
-                ClasificadorNumerico01CATS DECIMAL(3,1),
-                ClasificadorNumerico02CATS DECIMAL(3,1),
-                ClasificadorAlfanumerico01CATS VARCHAR(7),
-                ClasificadorAlfanumerico02CATS VARCHAR(1),
-                ObservacionesCATS VARCHAR(17),
-                FechaAltaCATS VARCHAR(21),
-                FechaCambioCATS VARCHAR(21),
-                IDUSERALTA BIGINT NOT NULL,
-                IDUSERUPDATE BIGINT NOT NULL,
-                PRIMARY KEY (idCatalogo)
+CREATE TABLE catalogs (
+  IDCATALOG int(11) NOT NULL AUTO_INCREMENT,
+  DOMAIN varchar(100) NOT NULL,
+  CATALOGKEY int(10) NOT NULL,
+  VALUEES varchar(255) DEFAULT NULL,
+  VALUEEN varchar(255) DEFAULT NULL,
+  CATALOGORDER int(10) NOT NULL NULL,
+  DESCRIPTION varchar(300),
+  STATE smallint NOT NULL,
+  PRIMARY KEY (IDCATALOG)
 );
 
 
@@ -109,17 +105,6 @@ REFERENCES admuser (IDUSER)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE catalogos ADD CONSTRAINT user_catalogos_fk
-FOREIGN KEY (IDUSERALTA)
-REFERENCES admuser (IDUSER)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
-
-ALTER TABLE catalogos ADD CONSTRAINT user_catalogos_fk1
-FOREIGN KEY (IDUSERUPDATE)
-REFERENCES admuser (IDUSER)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
 
 ALTER TABLE menu ADD CONSTRAINT rol_menu_fk
 FOREIGN KEY (IDROLE)

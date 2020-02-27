@@ -62,46 +62,32 @@ define("USER_UPDATE_PASSWORD_ERROR", "Can't update password");
 
 //**********************************CATALOGS*************************************************************
 
-define("CATALOG_MAIN_TITLE", "CATALOGS");
+define("CATALOG_MAIN_TITLE", "CATALOGOS");
 //Modal titles
-define("CATALOG_MODAL_ADD_TITLE", "ADD CATALOG");
-define("CATALOG_MODAL_UPDATE_TITLE", "MODIFY CATALOG");
+define("CATALOG_MODAL_ADD_TITLE", "AGREGAR CATALOGO");
+define("CATALOG_MODAL_UPDATE_TITLE", "MODIFICAR CATALOGO");
 //form labels
 
-define("CATALOG_CLAVE_RUBRO", "Item id");
-define("CATALOG_CLAVE_ENTIDAD", "Entity id");
-define("CATALOG_ESTATUS_REGISTRO", "State");
-define("CATALOG_DESCRIPCION", "Description");
-define("CATALOG_CLAVE_JUSTIFICADA", "Justify id");
-define("CATALOG_CLASIFICADOR_NUMERICO_01", "Numeric clasificator 01");
-define("CATALOG_CLASIFICADOR_NUMERICO_02", "Numeric clasificator 02");
-define("CATALOG_CLASIFICADOR_ALFANUMERICO_01", "Alphanumeric clasificator 01");
-define("CATALOG_CLASIFICADOR_ALFANUMERICO_02", "Alphanumeric clasificator 02");
-define("CATALOG_OBSERVACIONES", "Observations");
-define("CATALOG_USUARIO_ALTA", "User who registered");
-define("CATALOG_FECHA_ALTA", "Creation date");
-define("CATALOG_CLAVE_USUARIO_CAMBIO", "User who updated");
-define("CATALOG_FACHA_CAMBIO", "Modify date");
+define("CATALOG_DOMAIN", "Dominio");
+define("CATALOG_KEY", "ID");
+define("CATALOG_VALUEES", "Valor español");
+define("CATALOG_VALUEEN", "Valor inglés");
+define("CATALOG_ORDER", "Orden");
+define("CATALOG_DESCRIPTION", "Descripción");
+define("CATALOG_STATE", "Estatus");
 
 define("CATALOG_TABLE_HEADER", array(
-    "Update",
-    CATALOG_CLAVE_RUBRO, 
-    CATALOG_CLAVE_ENTIDAD, 
-    CATALOG_DESCRIPCION, 
-    CATALOG_CLAVE_JUSTIFICADA,
-    CATALOG_CLASIFICADOR_NUMERICO_01,
-    CATALOG_CLASIFICADOR_NUMERICO_02,
-    CATALOG_CLASIFICADOR_ALFANUMERICO_01,
-    CATALOG_CLASIFICADOR_ALFANUMERICO_02,
-    CATALOG_OBSERVACIONES,
-    CATALOG_USUARIO_ALTA,
-    CATALOG_FECHA_ALTA,
-    CATALOG_CLAVE_USUARIO_CAMBIO,
-    CATALOG_FACHA_CAMBIO,
-    CATALOG_ESTATUS_REGISTRO, 
+    "Modificar",
+    CATALOG_KEY,
+    CATALOG_VALUEES,
+    CATALOG_VALUEEN,
+    CATALOG_ORDER,
+    CATALOG_DESCRIPTION,
+    CATALOG_STATE
     ));
 
-define("CATALOG_ADD_SUCCESS", "Catalog added successfully");
-define("CATALOG_ADD_ERROR", "Can´t add catalog, please verify again");
-define("CATALOG_UPDATE_SUCCESS", "Catalog updated successfully");
-define("CATALOG_UPDATE_ERROR", "Can't update catalog, please verify again");
+define("CATALOG_ADD_SUCCESS", "Catálogo agregado satisfactoriamente");
+define("CATALOG_ADD_ERROR", "No fue posible agregar el registro, favor de verificar");
+define("CATALOG_UPDATE_SUCCESS", "Catalogo modificado satisfactoriamente");
+define("CATALOG_UPDATE_ERROR", "No fue posible modificar el registro, favor de verificar");
+

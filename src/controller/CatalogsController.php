@@ -104,8 +104,8 @@ switch ($op) {
 
         break;
         case "getAllCatalogData":
-        $rubro = filter_input(INPUT_POST, 'rubro');
-        $response = $catalogService->getAllDataByRubro($rubro);
+        $domain = filter_input(INPUT_POST, 'domain');
+        $response = $catalogService->getAllDataByDomain($domain);
         echo json_encode($response);
 
         break;

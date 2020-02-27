@@ -3,6 +3,8 @@
 interface CatalogService {
     
     public function getAllData();
+
+    public function getAllDataByDomain($domain);
     
     public function add($data);
     
@@ -14,6 +16,6 @@ interface CatalogService {
     
     public function getCatalogNames();
     
-    public function getAllDataByRubro($rubro);
+    
     
 }

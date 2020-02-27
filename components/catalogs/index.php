@@ -9,7 +9,10 @@ require_once __DIR__ . '../../../src/constants/constants.php';
                 <h2><?php echo CATALOG_MAIN_TITLE; ?></h2>                                        
                 <div class="clearfix"></div>
             </div>
-            <span class="fa fa-plus-circle iconSuccess" data-toggle="modal" data-target="#modalAdd" onclick="addNew()"></span>
+            <div class="col-md-9 col-sm-9 col-xs-9">
+                <select id="catalogNames"  style="width: 100% !important; min-width: 150px"></select>
+            </div>
+            <span id="addCatalog" style="display: none" class="fa fa-plus-circle iconSuccess" data-toggle="modal" data-target="#modalAdd" onclick="addNew()"></span>
             <br />
             <br />
             <hr />
@@ -172,13 +175,13 @@ require_once __DIR__ . '../../../src/constants/constants.php';
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="observacionesm">
-                          <?php echo CATALOG_OBSERVACIONES; ?> 
+                            <?php echo CATALOG_OBSERVACIONES; ?> 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="text" id="observacionesm" name="observacionesm" class="form-control col-md-7 col-xs-12 validate[maxSize[17]]" />
                         </div>
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="estatusRegistrom"><?php echo USER_STATE; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">

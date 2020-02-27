@@ -1,5 +1,25 @@
+function getCatalogNames() {
+
+    var selectBody = "<option value=''></option>";
+    $.ajax({
+        url: "src/controller/CatalogsController.php?op=getCatalogNames",
+        type: 'get',
+        contentType:"application/json",
+        dataType: 'json'
+    }).done(function (data) {        
+        
+        $.each(data, function(i, v){            
+            selectBody += "<option value='"+v.DOMAIN+"'>"+v.DOMAIN+"</option>";
+        });
+        $("#catalogNames").html(selectBody).select2({theme: "classic"});
+    });
+
+    
+
+}
 function addNew() {
     document.getElementById('frmAdd').reset();
+    $("#claveRubro").val($("#catalogNames").val()).prop("readonly", "readonly");
 }
 function saveNew() {
     if ($("#frmAdd").validationEngine('validate')) {
@@ -18,7 +38,7 @@ function saveNew() {
                 });
                 document.getElementById('frmAdd').reset();
                 $("#modalAdd").modal('hide');
-                getAll();
+                getAllCatalogData($("#catalogNames").val());
             } else {
                 new PNotify({
                     title: 'ERROR',
@@ -59,6 +79,7 @@ function update(id) {
 }
 function saveUpdated() {
     if ($("#frmUpdate").validationEngine('validate')) {
+        console.log($("#frmUpdate").serialize());
         $.ajax({
             url: 'src/controller/CatalogsController.php?op=update',
             type: "post",
@@ -73,7 +94,7 @@ function saveUpdated() {
                 });
                 document.getElementById('frmUpdate').reset();
                 $("#modalUpdate").modal('hide');
-                getAll();
+                getAllCatalogData($("#catalogNames").val());
             } else {
                 new PNotify({
                     title: 'ERROR',
@@ -84,7 +105,7 @@ function saveUpdated() {
         });
     }
 }
-function getAll() {
+function getAllCatalogData (domain) {
 
     var table = "<table id='reportTable' class='table table-hover'>";
     $.ajax({
@@ -100,35 +121,24 @@ function getAll() {
         table += "</tr>";
         table += "</thead>";
         $.ajax({
-            url: "src/controller/CatalogsController.php?op=getAll",
-            type: 'get',
+            url: "src/controller/CatalogsController.php?op=getAllCatalogData",
+            type: 'post',
+            data:{"domain": domain },
             dataType: 'json'
         }).done(function (data) {
 
             table += "<tbody>";
-            $.each(data, function (i, v) {
-                console.log(v);
-                var state = (v.EstatusRegistroCATS === "1") ? "ACTIVO" : "INACTIVO";
-                var userUpdate=(v.USERUPDATE !== null)?v.USERUPDATE: "";
-                var dateUpdate=(v.FechaCambioCATS !== null)?v.FechaCambioCATS: "";
-                v.ClasificadorNumerico01CATS = (v.ClasificadorNumerico01CATS !== null)?v.ClasificadorNumerico01CATS:"";
-                v.ClasificadorNumerico02CATS = (v.ClasificadorNumerico02CATS !== null)?v.ClasificadorNumerico02CATS:"";
-                table += "<tr>";      
-                table += "<td><span class='fa fa-pencil iconWarning' onclick='update(" + v.idCatalogo + ")'></span></td>";                
-                table += "<td>" + v.ClaveRubroCATS + "</td>";
-                table += "<td>" + v.ClaveEntidadCATS + "</td>";
-                table += "<td>" + v.DescripcionCATS + "</td>";
-                table += "<td>" + v.ClaveJustificadaCATS + "</td>";
-                table += "<td>" + v.ClasificadorNumerico01CATS + "</td>";
-                table += "<td>" + v.ClasificadorNumerico02CATS + "</td>";
-                table += "<td>" + v.ClasificadorAlfanumerico01CATS + "</td>";
-                table += "<td>" + v.ClasificadorAlfanumerico02CATS + "</td>";
-                table += "<td>" + v.ObservacionesCATS + "</td>";
-                table += "<td>" + v.USERALTA + "</td>";
-                table += "<td>" + v.FechaAltaCATS + "</td>";
-                table += "<td>" + userUpdate + "</td>";
-                table += "<td>" + dateUpdate + "</td>";
-                table += "<td>" + state + "</td>";                                
+            $.each(data, function (i, v) {                
+                var state = (v.STATE === "1") ? "ACTIVO" : "INACTIVO";                
+                table += "<tr>";    
+                table += "<td><span class='fa fa-pencil iconWarning' onclick='update(" + v.ID + ")'></span></td>";                
+                table += "<td>" + v.CATALOGKEY + "</td>";
+                table += "<td>" + v.VALUEES + "</td>";
+                table += "<td>" + v.VALUEEN + "</td>";
+                table += "<td>" + v.CATALOGORDER + "</td>";
+                table += "<td>" + v.DESCRIPTION + "</td>";                
+                table += "<td>" + state + "</td>";                
+                
                 table += "</tr>";
             });                                   
 
@@ -152,3 +162,4 @@ function getAll() {
 
 
 }
+

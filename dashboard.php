@@ -8,11 +8,6 @@ require_once 'src/login/dao/LoginDaoImpl.php';
 require_once 'src/login/service/LoginService.php';
 require_once 'src/login/service/LoginServiceImpl.php';
 
-//if ($_SESSION['language'] == "ES") {
-//    require_once '../app/src/constants/constants.php';
-//} else {
-//    require_once '../app/src/constants/constantsEN.php';
-//}
 
 if (!isset($_SESSION['user']) && !isset($_SESSION['currentRole'])) {
     header("Location: index.php");

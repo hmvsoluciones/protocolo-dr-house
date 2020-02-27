@@ -14,6 +14,10 @@ class CatalogServiceImpl implements CatalogService {
 
         return $this->catalogDao->getAllData();
     }
+    public function getAllDataByDomain($domain) {
+
+        return $this->catalogDao->getAllDataByDomain($domain);
+    }
 
     public function add($data) {
         return $this->catalogDao->add($data);
@@ -51,11 +55,6 @@ class CatalogServiceImpl implements CatalogService {
 
     public function getCatalogNames() {
         return $this->catalogDao->getCatalogNames();
-    }
-
-    public function getAllDataByRubro($rubro) {
-
-        return $this->catalogDao->getAllDataByRubro($rubro);
-    }
+    }    
 
 }

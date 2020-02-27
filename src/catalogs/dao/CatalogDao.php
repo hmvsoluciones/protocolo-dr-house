@@ -3,6 +3,8 @@
 interface CatalogDao {
  
     public function getAlldata();
+
+    public function getAllDataByDomain($domain);
     
     public function add($data);
     
@@ -12,8 +14,6 @@ interface CatalogDao {
     
     public function getByCvesRubros($rubros);
     
-    public function getCatalogNames();
-    
-    public function getAllDataByRubro($rubro);
+    public function getCatalogNames();    
                
 }

@@ -38,3 +38,43 @@ INSERT INTO userroles(IDUSER, IDROLE)VALUES
 ((SELECT IDUSER FROM admuser WHERE user LIKE 'rricardez'), (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'ADMIN')),
 ((SELECT IDUSER FROM admuser WHERE user LIKE 'rricardez'), (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'REPORTS'));
 
+INSERT INTO catalogs
+(
+  `DOMAIN`,
+  `CATALOGKEY`,
+  `VALUEES`,
+  `VALUEEN`,
+  `CATALOGORDER`,
+  `DESCRIPTION`,
+  `STATE`
+)
+VALUES
+(
+  'CAT_STATE',
+  1,
+  'ACTIVO',
+  'ACTIVE',
+  1,
+  'Active Value',
+  1
+);
+INSERT INTO catalogs
+(
+  `DOMAIN`,
+  `CATALOGKEY`,
+  `VALUEES`,
+  `VALUEEN`,
+  `CATALOGORDER`,
+  `DESCRIPTION`,
+  `STATE`
+)
+VALUES
+(
+  'CAT_STATE',
+  2,
+  'INACTIVO',
+  'INACTIVE',
+  2,
+  'Not Active',
+  1
+);

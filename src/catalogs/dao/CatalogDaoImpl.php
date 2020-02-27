@@ -10,10 +10,13 @@ class CatalogDaoImpl extends Connection implements CatalogDao {
 
     public function getAllData() {
 
-        $query = "SELECT idCatalogo, ClaveRubroCATS, ClaveEntidadCATS, EstatusRegistroCATS, DescripcionCATS, ClaveJustificadaCATS, ClasificadorNumerico01CATS, ClasificadorNumerico02CATS, ClasificadorAlfanumerico01CATS, ClasificadorAlfanumerico02CATS,        ObservacionesCATS, IDUSERALTA, CONCAT(ua.NAME, ' ', ua.LASTNAME) USERALTA, FechaAltaCATS, IDUSERUPDATE, CONCAT(uu.NAME, ' ', uu.LASTNAME) USERUPDATE, FechaCambioCATS "
-                . " FROM catalogos "
-                . " INNER JOIN admuser ua ON ua.IDUSER = catalogos.IDUSERALTA"
-                . " LEFT JOIN admuser uu ON uu.IDUSER = catalogos.IDUSERUPDATE";
+        $query = "SELECT IDCATALOG, DOMAIN, CATALOGKEY, VALUEES, VALUEEN, CATALOGORDER, DESCRIPTION, STATE FROM catalogs";
+
+        return $this->getAll($query);
+    }
+
+    public function getAllDataByDomain($domain){
+        $query = "SELECT IDCATALOG, DOMAIN, CATALOGKEY, VALUEES, VALUEEN, CATALOGORDER, DESCRIPTION, STATE FROM catalogs WHERE DOMAIN LIKE '{$domain}'";
 
         return $this->getAll($query);
     }
@@ -81,17 +84,7 @@ class CatalogDaoImpl extends Connection implements CatalogDao {
     }
 
     public function getCatalogNames() {
-        $query = "SELECT  DISTINCT NombreCatalogoCATS, ClaveRubroCATS FROM catalogos ORDER BY NombreCatalogoCATS";
-        return $this->getAll($query);
-    }
-
-    public function getAllDataByRubro($rubro){
-        $query = "SELECT idCatalogo, ClaveRubroCATS, ClaveEntidadCATS, EstatusRegistroCATS, DescripcionCATS, ClaveJustificadaCATS, ClasificadorNumerico01CATS, ClasificadorNumerico02CATS, ClasificadorAlfanumerico01CATS, ClasificadorAlfanumerico02CATS,        ObservacionesCATS, IDUSERALTA, CONCAT(ua.NAME, ' ', ua.LASTNAME) USERALTA, FechaAltaCATS, IDUSERUPDATE, CONCAT(uu.NAME, ' ', uu.LASTNAME) USERUPDATE, FechaCambioCATS "
-                . " FROM catalogos "
-                . " INNER JOIN admuser ua ON ua.IDUSER = catalogos.IDUSERALTA"
-                . " LEFT JOIN admuser uu ON uu.IDUSER = catalogos.IDUSERUPDATE "
-                . " WHERE catalogos.ClaveRubroCATS LIKE '{$rubro}' ORDER BY DescripcionCATS";
-
+        $query = "SELECT DISTINCT DOMAIN FROM catalogs";
         return $this->getAll($query);
     }
 }
