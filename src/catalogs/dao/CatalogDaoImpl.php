@@ -22,18 +22,9 @@ class CatalogDaoImpl extends Connection implements CatalogDao {
     }
 
     public function add($data) {
-       $data['clasificadorNumerico01CATS'] = (empty($data['clasificadorNumerico01CATS']))?"null":$data['clasificadorNumerico01CATS'];
-       $data['clasificadorNumerico02CATS'] = (empty($data['clasificadorNumerico02CATS']))?"null":$data['clasificadorNumerico02CATS'];
 
-        $query = "INSERT INTO catalogos( "
-                . " ClaveRubroCATS, ClaveEntidadCATS, EstatusRegistroCATS,"
-                . " DescripcionCATS, ClaveJustificadaCATS, ClasificadorNumerico01CATS, ClasificadorNumerico02CATS,"
-                . " ClasificadorAlfanumerico01CATS, ClasificadorAlfanumerico02CATS, ObservacionesCATS, IDUSERALTA,"
-                . " FechaAltaCATS)"
-                . " VALUES( '{$data['claveRubroCATS']}', '{$data['claveEntidadCATS']}', '{$data['estatusRegistroCATS']}', "
-                . " '{$data['descripcionCATS']}', '{$data['claveJustificadaCATS']}', {$data['clasificadorNumerico01CATS']}, {$data['clasificadorNumerico02CATS']},"
-                . " '{$data['clasificadorAlfanumerico01CATS']}', '{$data['clasificadorAlfanumerico02CATS']}', '{$data['observacionesCATS']}', {$data['IDUSERALTA']}, "
-                . " '{$data['fechaAltaCATS']}')";
+        $query = "INSERT INTO catalogs(DOMAIN, CATALOGKEY, VALUEES, VALUEEN, CATALOGORDER, DESCRIPTION, STATE) VALUES "
+        . " ('{$data['catalogDomain']}', {$data['catalogKey']},  '{$data['catalogValueEs']}', '{$data['catalogValueEn']}', {$data['catalogOrder']}, '{$data['catalogDescription']}', {$data['catalogState']});  ";
 
 
         if ($this->executeQuery($query)) {
@@ -45,24 +36,15 @@ class CatalogDaoImpl extends Connection implements CatalogDao {
 
     public function update($data) {
 
-       $data['clasificadorNumerico01'] = (empty($data['clasificadorNumerico01']))?"null":$data['clasificadorNumerico01'];
-       $data['clasificadorNumerico02'] = (empty($data['clasificadorNumerico02']))?"null":$data['clasificadorNumerico02'];
-
-
-        $query = "UPDATE catalogos "
-                . " SET claveRubroCATS = '{$data['claveRubro']}',"
-                . " ClaveEntidadCATS ='{$data['claveEntidad']}', "
-                . " EstatusRegistroCATS = '{$data['estatusRegistro']}', "
-                . " DescripcionCATS = '{$data['descripcion']}', "
-                . " ClaveJustificadaCATS = '{$data['claveJustificada']}', "
-                . " ClasificadorNumerico01CATS = {$data['clasificadorNumerico01']}, "
-                . " ClasificadorNumerico02CATS = {$data['clasificadorNumerico02']},"
-                . " ClasificadorAlfanumerico01CATS = '{$data['clasificadorAlfanumerico01']}', "
-                . " ClasificadorAlfanumerico02CATS = '{$data['clasificadorAlfanumerico02']}', "
-                . " ObservacionesCATS= '{$data['observaciones']}', "                
-                . " IDUSERUPDATE = '{$data['IDUSERUPDATE']}', "
-                . " FechaCambioCATS = '{$data['fechaUpdate']}'"
-                . " WHERE idCatalogo = {$data['idCatalogo']}";
+        $query = " UPDATE catalogs"
+            . "  SET DOMAIN = '{$data['catalogDomainm']}',"
+            . "   CATALOGKEY = {$data['catalogKeym']},"
+            . "   VALUEES = '{$data['catalogValueEsm']}',"
+            . "   VALUEEN = '{$data['catalogValueEnm']}',"
+            . "   CATALOGORDER = {$data['catalogOrderm']},"
+            . "   DESCRIPTION = '{$data['catalogDescriptionm']}',"
+            . "   STATE = {$data['catalogStatem']}"
+            . " WHERE IDCATALOG = {$data['idCatalogm']};";            
 
         if ($this->executeQuery($query)) {
             return true;
@@ -72,8 +54,8 @@ class CatalogDaoImpl extends Connection implements CatalogDao {
     }
 
     public function getById($id) {
-      $query = "SELECT idCatalogo, ClaveRubroCATS, ClaveEntidadCATS, EstatusRegistroCATS, DescripcionCATS, ClaveJustificadaCATS, ClasificadorNumerico01CATS, ClasificadorNumerico02CATS, ClasificadorAlfanumerico01CATS, ClasificadorAlfanumerico02CATS, ObservacionesCATS, IDUSERALTA, FechaAltaCATS, IDUSERUPDATE, FechaCambioCATS FROM catalogos "
-                . " WHERE idCatalogo = {$id}";
+        $query = "SELECT IDCATALOG, DOMAIN, CATALOGKEY, VALUEES, VALUEEN, CATALOGORDER,DESCRIPTION, STATE FROM catalogs WHERE IDCATALOG = {$id}";
+
         return $this->getRow($query);
     }
 

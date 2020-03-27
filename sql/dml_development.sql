@@ -9,9 +9,7 @@
  */
 
 INSERT INTO `admuser` (`NAME`, `LASTNAME`, `LASTNAME2`, `MAIL`, `USER`, `CREDENTIAL`, `STATE`) VALUES
-('Luis Arturo', 'Munguia', 'Valdés', 'arturomv1930@gmail.com', 'arturomv1930@gmail.com', 'Uk9CVkFMU0lMTVVOTU9STVzyEjdiLA3SmfLWj1wWkxBitPh/7TkEsgjYxtsTu93LKHcxoOkPMuvHPEsDQENvuA==', 1),
-('Felipe', 'Corona', 'Macotela', 'fcorona@gmail.com', 'fcorona@gmail.com', 'Uk9CVkFMU0lMTVVOTU9STVzyEjdiLA3SmfLWj1wWkxBitPh/7TkEsgjYxtsTu93LKHcxoOkPMuvHPEsDQENvuA==', 1),
-('Rafael Eloy', 'Ricardez', 'Galindos', 'rricardez@grupofarmacos.com', 'rricardez', 'Uk9CVkFMU0lMTVVOTU9STVzyEjdiLA3SmfLWj1wWkxBitPh/7TkEsgjYxtsTu93LKHcxoOkPMuvHPEsDQENvuA==', 1);
+('Luis Arturo', 'Munguia', 'Valdés', 'arturomv1930@gmail.com', 'arturomv1930@gmail.com', 'Uk9CVkFMU0lMTVVOTU9STVzyEjdiLA3SmfLWj1wWkxBitPh/7TkEsgjYxtsTu93LKHcxoOkPMuvHPEsDQENvuA==', 1);
 
 
 INSERT INTO role(NAME,NAMEEN) VALUES
@@ -32,49 +30,22 @@ INSERT INTO submenu(NAME, URL, IDMENU, NAMEEN) VALUES
 
 INSERT INTO userroles(IDUSER, IDROLE)VALUES
 ((SELECT IDUSER FROM admuser WHERE user LIKE 'arturomv1930@gmail.com'), (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'ADMIN')),
-((SELECT IDUSER FROM admuser WHERE user LIKE 'arturomv1930@gmail.com'), (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'REPORTS')),
-((SELECT IDUSER FROM admuser WHERE user LIKE 'fcorona@gmail.com'), (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'ADMIN')),
-((SELECT IDUSER FROM admuser WHERE user LIKE 'fcorona@gmail.com'), (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'REPORTS')),
-((SELECT IDUSER FROM admuser WHERE user LIKE 'rricardez'), (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'ADMIN')),
-((SELECT IDUSER FROM admuser WHERE user LIKE 'rricardez'), (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'REPORTS'));
+((SELECT IDUSER FROM admuser WHERE user LIKE 'arturomv1930@gmail.com'), (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'REPORTS'));
 
-INSERT INTO catalogs
-(
-  `DOMAIN`,
-  `CATALOGKEY`,
-  `VALUEES`,
-  `VALUEEN`,
-  `CATALOGORDER`,
-  `DESCRIPTION`,
-  `STATE`
-)
-VALUES
-(
-  'CAT_STATE',
-  1,
-  'ACTIVO',
-  'ACTIVE',
-  1,
-  'Active Value',
-  1
-);
-INSERT INTO catalogs
-(
-  `DOMAIN`,
-  `CATALOGKEY`,
-  `VALUEES`,
-  `VALUEEN`,
-  `CATALOGORDER`,
-  `DESCRIPTION`,
-  `STATE`
-)
-VALUES
-(
-  'CAT_STATE',
-  2,
-  'INACTIVO',
-  'INACTIVE',
-  2,
-  'Not Active',
-  1
-);
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES('CAT_STATE', 1, 'ACTIVO', 'ACTIVE', 1, 'Active Value', 1);
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES ('CAT_STATE', 2, 'INACTIVO', 'INACTIVE', 2, 'Not Active', 1);
+
+
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES('CAT_TABLES', 1, 'admuser', 'admuser',  0, 'Application tables', 1);
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES('CAT_TABLES', 2, 'binnacle', 'binnacle', 0, 'Application tables', 1);
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES('CAT_TABLES', 3, 'catalogs', 'catalogs', 0, 'Application tables', 1);
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES('CAT_TABLES', 4, 'menu', 'menu', 0, 'Application tables', 1);
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES('CAT_TABLES', 5, 'role','role', 0, 'Application tables', 1);
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES('CAT_TABLES', 6, 'session', 'session', 0, 'Application tables', 1);
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES('CAT_TABLES', 7, 'submenu', 'submenu', 0, 'Application tables', 1);
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES('CAT_TABLES', 8, 'userroles', 'userroles',0, 'Application tables', 1);
+
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES('CAT_CRUD', 1, 'CREATE', 'CREATE',  1, 'INSERT DATA', 1);
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES('CAT_CRUD', 2, 'READ', 'READ', 2, 'SELECT DATA', 1);
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES('CAT_CRUD', 3, 'UPDATE', 'UPDATE', 3, 'UPDATE DATA', 1);
+INSERT INTO catalogs(`DOMAIN`, `CATALOGKEY`, `VALUEES`, `VALUEEN`, `CATALOGORDER`, `DESCRIPTION`, `STATE`) VALUES('CAT_CRUD', 4, 'DELETE', 'DELETE', 4, 'DELETE DATA', 1);

@@ -32,19 +32,15 @@ switch ($op) {
 
         break;   
     case "add":
-
-        $data['claveRubroCATS']= filter_input(INPUT_POST, 'claveRubro');
-            $data['claveEntidadCATS']= filter_input(INPUT_POST, 'claveEntidad');
-            $data['estatusRegistroCATS']= 1;
-            $data['descripcionCATS']= filter_input(INPUT_POST, 'descripcion');
-            $data['claveJustificadaCATS']= filter_input(INPUT_POST, 'claveJustificada');
-            $data['clasificadorNumerico01CATS']= filter_input(INPUT_POST, 'clasificadorNumerico01');
-            $data['clasificadorNumerico02CATS']= filter_input(INPUT_POST, 'clasificadorNumerico02');
-            $data['clasificadorAlfanumerico01CATS']= filter_input(INPUT_POST, 'clasificadorAlfanumerico01');
-            $data['clasificadorAlfanumerico02CATS']= filter_input(INPUT_POST, 'clasificadorAlfanumerico02');
-            $data['observacionesCATS']= filter_input(INPUT_POST, 'observaciones');
-            $data['IDUSERALTA']= $_SESSION['user']['IDUSER'];
-            $data['fechaAltaCATS']= date('Y-m-d');
+        $data['catalogDomain']= filter_input(INPUT_POST, 'catalogDomain');
+        $data['catalogKey']= filter_input(INPUT_POST, 'catalogKey');
+        $data['catalogDescription']= filter_input(INPUT_POST, 'catalogDescription');
+        $data['catalogState']= filter_input(INPUT_POST, 'catalogState');;
+        $data['catalogValueEs']= filter_input(INPUT_POST, 'catalogValueEs');
+        $data['catalogValueEn']= filter_input(INPUT_POST, 'catalogValueEn');
+        $data['catalogOrder']= filter_input(INPUT_POST, 'catalogOrder');
+        $data['IDUSERALTA']= $_SESSION['user']['IDUSER'];
+        $data['fechaAlta']= date('Y-m-d');
             
 
         if ($catalogService->add($data)) {
@@ -53,24 +49,19 @@ switch ($op) {
             echo json_encode(array("state" => false, "message" => CATALOG_ADD_ERROR));
         }
         break;
-    case "update":
-
-            $data['claveRubro']= filter_input(INPUT_POST, 'claveRubrom');
-            $data['claveEntidad']= filter_input(INPUT_POST, 'claveEntidadm');
-            $data['estatusRegistro']= filter_input(INPUT_POST, 'estatusRegistrom');
-            $data['descripcion']= filter_input(INPUT_POST, 'descripcionm');
-            $data['claveJustificada']= filter_input(INPUT_POST, 'claveJustificadam');
-            $data['clasificadorNumerico01']= filter_input(INPUT_POST, 'clasificadorNumerico01m');
-            $data['clasificadorNumerico02']= filter_input(INPUT_POST, 'clasificadorNumerico02m');
-            $data['clasificadorAlfanumerico01']= filter_input(INPUT_POST, 'clasificadorAlfanumerico01m');
-            $data['clasificadorAlfanumerico02']= filter_input(INPUT_POST, 'clasificadorAlfanumerico02m');
-            $data['observaciones']= filter_input(INPUT_POST, 'observacionesm');
+    case "update":            
+            $data['idCatalogm'] = filter_input(INPUT_POST, "idCatalogm");
+            $data['catalogDomainm']= filter_input(INPUT_POST, 'catalogDomainm');
+            $data['catalogKeym']= filter_input(INPUT_POST, 'catalogKeym');
+            $data['catalogValueEsm']= filter_input(INPUT_POST, 'catalogValueEsm');
+            $data['catalogValueEnm']= filter_input(INPUT_POST, 'catalogValueEnm');
+            $data['catalogOrderm']= filter_input(INPUT_POST, 'catalogOrderm');
+            $data['catalogDescriptionm']= filter_input(INPUT_POST, 'catalogDescriptionm');          
+            $data['catalogStatem']= filter_input(INPUT_POST, 'catalogStatem');          
             $data['IDUSERUPDATE']= $_SESSION['user']['IDUSER'];
-            $data['fechaUpdate']= date('Y-m-d');
-            $data['idCatalogo'] = filter_input(INPUT_POST, "idCatalogom");
             
-            
-
+            $data['currentDate']= date('Y-m-d');
+                        
         if ($catalogService->update($data)) {
             echo json_encode(array("state" => true, "message" => CATALOG_UPDATE_SUCCESS));
         } else {
@@ -96,7 +87,6 @@ switch ($op) {
 
         break;
         case "getCatalogNames":
-
         
         $response = $catalogService->getCatalogNames();
 

@@ -25,13 +25,14 @@ class CatalogServiceImpl implements CatalogService {
 
     public function update($data) {
         try {
-            $binnacleData['idReferencia'] = $data['idCatalogo'];
-            $binnacleData['claveTabla'] = 3;
-            $binnacleData['dominioTabla'] = "TABLAS";
-            $binnacleData['claveOperacion'] = 2;
-            $binnacleData['dominioOperacion'] = "CRUD";
 
-            $binnacleData['lastValue'] = json_encode($this->catalogDao->getById($data['idCatalogo']));
+            $binnacleData['referenceId'] = $data['idCatalogm'];
+            $binnacleData['tableCatalogKey'] = 2;
+            $binnacleData['tableDomain'] = "CAT_TABLES";
+            $binnacleData['operationCatalogKey'] = 1;
+            $binnacleData['operationDomain'] = "CAT_CRUD";
+            
+            $binnacleData['lastValue'] = json_encode($this->catalogDao->getById($data['idCatalogm']));
             $binnacleData['idUser'] = $_SESSION['user']['IDUSER'];
 
 

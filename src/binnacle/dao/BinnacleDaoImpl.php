@@ -12,8 +12,7 @@ class BinnacleDaoImpl extends Connection implements BinnacleDao {
 
     public function add($data) {
                
-       $query = "INSERT INTO bitacora(IDREFERENCIA, CLAVETABLA, DOMINIOTABLA, CLAVEOPERACION, DOMINIOOPERACION, FECHA, HORA, LASTVALUE, IDUSER) VALUES ({$data['idReferencia']}, {$data['claveTabla']}, '{$data['dominioTabla']}', {$data['claveOperacion']}, '{$data['dominioOperacion']}',  curdate(),  curtime(), '{$data['lastValue']}',  {$data['idUser']});";
-       
+        $query = "INSERT INTO binnacle(REFERENCEID, TABLECATALOGKEY, TABLEDOMAIN, OPERATIONCATALOGKEY, OPERATIONDOMAIN, OPERATIONDATE, OPERATIONTIME, LASTVALUE, IDUSER)VALUES ({$data['referenceId']}, {$data['tableCatalogKey']}, '{$data['tableDomain']}', {$data['operationCatalogKey']}, '{$data['operationDomain']}',  curdate(),  curtime(), '{$data['lastValue']}',  {$data['idUser']});";      
 
         if ($this->executeQuery($query)) {
             return true;

@@ -10,11 +10,11 @@ $(document).ready(function(){
     $("#catalogNames").change(function(){
         if($(this).val() !== ""){
             $("#addCatalog").show('slow');
-            $("#claveRubro").val($(this).val());
+            $("#catalogKey").val($(this).val());
             getAllCatalogData($(this).val());
         } else {
             $("#addCatalog").hide('slow');
-            $("#claveRubro").val("");            
+            $("#catalogKey").val("");            
         }
     });
     

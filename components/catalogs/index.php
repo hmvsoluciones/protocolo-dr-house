@@ -30,67 +30,58 @@ require_once __DIR__ . '../../../src/constants/constants.php';
             </div>
             <div class="modal-body">                                
                 <form id="frmAdd" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-
+                    
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="claveRubro"><?php echo CATALOG_CLAVE_RUBRO; ?> <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogDomain"><?php echo CATALOG_DOMAIN; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="claveRubro" name="claveRubro" class="form-control col-md-7 col-xs-12 validate[required, maxSize[8]]]" />                            
+                            <input type="text" id="catalogDomain" name="catalogDomain" class="form-control col-md-7 col-xs-12 validate[required, maxSize[100]]" />                            
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="claveEntidad"><?php echo CATALOG_CLAVE_ENTIDAD; ?> <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogKey"><?php echo CATALOG_KEY; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="claveEntidad" name="claveEntidad" class="form-control col-md-7 col-xs-12 validate[required, maxSize[8]]" />                            
+                            <input type="text" id="catalogKey" name="catalogKey" class="form-control col-md-7 col-xs-12 validate[required, maxSize[100]]" />                            
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descripcion"><?php echo CATALOG_DESCRIPCION; ?>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogDescription"><?php echo CATALOG_DESCRIPTION; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="descripcion" name="descripcion" class="form-control col-md-7 col-xs-12 validate[maxSize[53]]" /> 
+                            <input type="text" id="catalogDescription" name="catalogDescription" class="form-control col-md-7 col-xs-12 validate[required, maxSize[300]]" /> 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="claveJustificada"><?php echo CATALOG_CLAVE_JUSTIFICADA; ?> 
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogValueEs"><?php echo CATALOG_VALUEES; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="claveJustificada" name="claveJustificada" class="form-control col-md-7 col-xs-12 validate[maxSize[1]]" />
-                        </div>
-                    </div>                    
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clasificadorNumerico01"><?php echo CATALOG_CLASIFICADOR_NUMERICO_01; ?> 
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="clasificadorNumerico01" name="clasificadorNumerico01" class="form-control col-md-7 col-xs-12 validate[custom[number], maxSize[4]]" />
+                            <input type="text" id="catalogValueEs" name="catalogValueEs" class="form-control col-md-7 col-xs-12 validate[required, maxSize[255]]" /> 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clasificadorNumerico02"><?php echo CATALOG_CLASIFICADOR_NUMERICO_02; ?> 
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogValueEn"><?php echo CATALOG_VALUEEN; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="clasificadorNumerico02" name="clasificadorNumerico02" class="form-control col-md-7 col-xs-12 validate[custom[number], maxSize[4]]" />
-                        </div>
-                    </div>                    
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clasificadorAlfanumerico01"><?php echo CATALOG_CLASIFICADOR_ALFANUMERICO_01; ?> 
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="clasificadorAlfanumerico01" name="clasificadorAlfanumerico01" class="form-control col-md-7 col-xs-12 validate[ maxSize[7]]" />
+                            <input type="text" id="catalogValueEn" name="catalogValueEn" class="form-control col-md-7 col-xs-12 validate[required, maxSize[255]]" /> 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clasificadorAlfanumerico02"><?php echo CATALOG_CLASIFICADOR_ALFANUMERICO_02; ?> 
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogOrder"><?php echo CATALOG_ORDER; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="clasificadorAlfanumerico02" name="clasificadorAlfanumerico02" class="form-control col-md-7 col-xs-12 validate[ maxSize[1]]" />
+                            <input type="text" id="catalogOrder" name="catalogOrder" class="form-control col-md-7 col-xs-12 validate[required, custom[number]]" /> 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="observaciones"><?php echo CATALOG_OBSERVACIONES; ?> </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogState"><?php echo USER_STATE; ?> <span class="required">*</span>
+                        </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="observaciones" name="observaciones" class="form-control col-md-7 col-xs-12 validate[maxSize[17]]" />
+                            <select id="catalogState" name="catalogState" class="form-control col-md-7 col-xs-12 validate[required]" >
+                                <option value=""><?php echo SELECT_EMPTY_VALUE; ?></option>
+                                <option selected value="1"><?php echo SELECT_STATE_ACTIVE; ?></option>
+                                <option value="2"><?php echo SELECT_STATE_INACTIVE; ?></option>
+                            </select>
                         </div>
                     </div>
                     <div class="ln_solid"></div>                   
@@ -116,78 +107,56 @@ require_once __DIR__ . '../../../src/constants/constants.php';
             <div class="modal-body">                                
                 <form id="frmUpdate" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
 
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="claveRubrom"><?php echo CATALOG_CLAVE_RUBRO; ?> <span class="required">*</span>
+                     <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogDomainm"><?php echo CATALOG_DOMAIN; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="hidden" id="idCatalogm" name="idCatalogom" class="form-control col-md-7 col-xs-12 validate[required]" />                            
-                            <input type="text" id="claveRubrom" name="claveRubrom" class="form-control col-md-7 col-xs-12 validate[required, maxSize[8]]]" />                            
+                            <input type="text" id="catalogDomainm" name="catalogDomainm" class="form-control col-md-7 col-xs-12 validate[required, maxSize[100]]" />                            
+                            <input type="hidden" id="idCatalogm" name="idCatalogm" class="form-control col-md-7 col-xs-12 validate[required]" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="claveEntidadm"><?php echo CATALOG_CLAVE_ENTIDAD; ?> <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogKeym"><?php echo CATALOG_KEY; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="claveEntidadm" name="claveEntidadm" class="form-control col-md-7 col-xs-12 validate[required, maxSize[8]]" />                            
+                            <input type="text" id="catalogKeym" name="catalogKeym" class="form-control col-md-7 col-xs-12 validate[required, maxSize[100]]" />                            
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descripcionm"><?php echo CATALOG_DESCRIPCION; ?>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogDescriptionm"><?php echo CATALOG_DESCRIPTION; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="descripcionm" name="descripcionm" class="form-control col-md-7 col-xs-12 validate[maxSize[53]]" /> 
+                            <input type="text" id="catalogDescriptionm" name="catalogDescriptionm" class="form-control col-md-7 col-xs-12 validate[required, maxSize[300]]" /> 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="claveJustificadam"><?php echo CATALOG_CLAVE_JUSTIFICADA; ?> 
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogValueEsm"><?php echo CATALOG_VALUEES; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="claveJustificadam" name="claveJustificadam" class="form-control col-md-7 col-xs-12 validate[maxSize[1]]" />
-                        </div>
-                    </div>                    
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clasificadorNumerico01m"><?php echo CATALOG_CLASIFICADOR_NUMERICO_01; ?> 
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="clasificadorNumerico01m" name="clasificadorNumerico01m" class="form-control col-md-7 col-xs-12 validate[custom[number], maxSize[4]]" />
+                            <input type="text" id="catalogValueEsm" name="catalogValueEsm" class="form-control col-md-7 col-xs-12 validate[required, maxSize[255]]" /> 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clasificadorNumerico02m"><?php echo CATALOG_CLASIFICADOR_NUMERICO_02; ?> 
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogValueEnm"><?php echo CATALOG_VALUEEN; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="clasificadorNumerico02m" name="clasificadorNumerico02m" class="form-control col-md-7 col-xs-12 validate[custom[number], maxSize[4]]" />
-                        </div>
-                    </div>                    
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clasificadorAlfanumerico01m"><?php echo CATALOG_CLASIFICADOR_ALFANUMERICO_01; ?> 
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="clasificadorAlfanumerico01m" name="clasificadorAlfanumerico01m" class="form-control col-md-7 col-xs-12 validate[ maxSize[7]]" />
+                            <input type="text" id="catalogValueEnm" name="catalogValueEnm" class="form-control col-md-7 col-xs-12 validate[required, maxSize[255]]" /> 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clasificadorAlfanumerico02m"><?php echo CATALOG_CLASIFICADOR_ALFANUMERICO_02; ?> 
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogOrderm"><?php echo CATALOG_ORDER; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="clasificadorAlfanumerico02m" name="clasificadorAlfanumerico02m" class="form-control col-md-7 col-xs-12 validate[ maxSize[1]]" />
+                            <input type="text" id="catalogOrderm" name="catalogOrderm" class="form-control col-md-7 col-xs-12 validate[required, custom[number]]" /> 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="observacionesm">
-                            <?php echo CATALOG_OBSERVACIONES; ?> 
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catalogStatem"><?php echo USER_STATE; ?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="observacionesm" name="observacionesm" class="form-control col-md-7 col-xs-12 validate[maxSize[17]]" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="estatusRegistrom"><?php echo USER_STATE; ?> <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select id="estatusRegistrom" name="estatusRegistrom" class="form-control col-md-7 col-xs-12 validate[required]" >
+                            <select id="catalogStatem" name="catalogStatem" class="form-control col-md-7 col-xs-12 validate[required]" >
                                 <option value=""><?php echo SELECT_EMPTY_VALUE; ?></option>
-                                <option value="1"><?php echo SELECT_STATE_ACTIVE; ?></option>
+                                <option selected value="1"><?php echo SELECT_STATE_ACTIVE; ?></option>
                                 <option value="2"><?php echo SELECT_STATE_INACTIVE; ?></option>
                             </select>
                         </div>

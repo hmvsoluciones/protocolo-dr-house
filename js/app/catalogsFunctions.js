@@ -19,7 +19,7 @@ function getCatalogNames() {
 }
 function addNew() {
     document.getElementById('frmAdd').reset();
-    $("#claveRubro").val($("#catalogNames").val()).prop("readonly", "readonly");
+    $("#catalogDomain").val($("#catalogNames").val()).prop("readonly", "readonly");
 }
 function saveNew() {
     if ($("#frmAdd").validationEngine('validate')) {
@@ -62,17 +62,14 @@ function update(id) {
         data: {"id": id}
     }).done(function (data) {
         
-        $("#clasificadorAlfanumerico01m").val(data.ClasificadorAlfanumerico01CATS);
-        $("#clasificadorAlfanumerico02m").val(data.ClasificadorAlfanumerico02CATS);
-        $("#clasificadorNumerico01m").val(data.ClasificadorNumerico01CATS);
-        $("#clasificadorNumerico02m").val(data.ClasificadorNumerico02CATS);
-        $("#claveEntidadm").val(data.ClaveEntidadCATS);
-        $("#claveJustificadam").val(data.ClaveJustificadaCATS);
-        $("#claveRubrom").val(data.ClaveRubroCATS);
-        $("#descripcionm").val(data.DescripcionCATS);
-        $("#estatusRegistrom").val(data.EstatusRegistroCATS);
-        $("#observacionesm").val(data.ObservacionesCATS);
-        $("#idCatalogm").val(data.idCatalogo);
+        $("#catalogDomainm").val(data.DOMAIN).prop("readonly", "readonly");
+        $("#catalogKeym").val(data.CATALOGKEY).prop("readonly", "readonly");
+        $("#catalogDescriptionm").val(data.DESCRIPTION);
+        $("#catalogValueEsm").val(data.VALUEES);
+        $("#catalogValueEnm").val(data.VALUEEN);
+        $("#catalogOrderm").val(data.CATALOGORDER);
+        $("#catalogStatem").val(data.STATE);
+        $("#idCatalogm").val(data.IDCATALOG);
         
         
     });
@@ -131,7 +128,7 @@ function getAllCatalogData (domain) {
             $.each(data, function (i, v) {                
                 var state = (v.STATE === "1") ? "ACTIVO" : "INACTIVO";                
                 table += "<tr>";    
-                table += "<td><span class='fa fa-pencil iconWarning' onclick='update(" + v.ID + ")'></span></td>";                
+                table += "<td><span class='fa fa-pencil iconWarning' onclick='update(" + v.IDCATALOG + ")'></span></td>";                
                 table += "<td>" + v.CATALOGKEY + "</td>";
                 table += "<td>" + v.VALUEES + "</td>";
                 table += "<td>" + v.VALUEEN + "</td>";
