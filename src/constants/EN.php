@@ -46,7 +46,7 @@ define("USER_TABLE_HEADER", array(USER_NAME, USER_MAIL, USER_USER, USER_STATE, "
 
 //Messages
 define("USER_ADD_SUCCESS", "User successfully added");
-define("USER_ADD_ERROR", "Cant'a add user, please verify again");
+define("USER_ADD_ERROR", "Can't add user, please verify again");
 define("USER_UPDATE_SUCCESS", "User successfully updated");
 define("USER_UPDATE_ERROR", "Can't update user, please verify again");
 define("USER_RESET_PASSWORD_SUCCESS", "Password reset");
@@ -62,22 +62,22 @@ define("USER_UPDATE_PASSWORD_ERROR", "Can't update password");
 
 //**********************************CATALOGS*************************************************************
 
-define("CATALOG_MAIN_TITLE", "CATALOGOS");
+define("CATALOG_MAIN_TITLE", "CATALOGS");
 //Modal titles
-define("CATALOG_MODAL_ADD_TITLE", "AGREGAR CATALOGO");
-define("CATALOG_MODAL_UPDATE_TITLE", "MODIFICAR CATALOGO");
+define("CATALOG_MODAL_ADD_TITLE", "ADD CATALOG");
+define("CATALOG_MODAL_UPDATE_TITLE", "UPDATE CATALOG");
 //form labels
 
-define("CATALOG_DOMAIN", "Dominio");
+define("CATALOG_DOMAIN", "Domain");
 define("CATALOG_KEY", "ID");
-define("CATALOG_VALUEES", "Valor español");
-define("CATALOG_VALUEEN", "Valor inglés");
-define("CATALOG_ORDER", "Orden");
-define("CATALOG_DESCRIPTION", "Descripción");
-define("CATALOG_STATE", "Estatus");
+define("CATALOG_VALUEES", "Spanish value");
+define("CATALOG_VALUEEN", "English value");
+define("CATALOG_ORDER", "Order");
+define("CATALOG_DESCRIPTION", "Descriptión");
+define("CATALOG_STATE", "Status");
 
 define("CATALOG_TABLE_HEADER", array(
-    "Modificar",
+    "Update",
     CATALOG_KEY,
     CATALOG_VALUEES,
     CATALOG_VALUEEN,
@@ -86,8 +86,7 @@ define("CATALOG_TABLE_HEADER", array(
     CATALOG_STATE
     ));
 
-define("CATALOG_ADD_SUCCESS", "Catálogo agregado satisfactoriamente");
-define("CATALOG_ADD_ERROR", "No fue posible agregar el registro, favor de verificar");
-define("CATALOG_UPDATE_SUCCESS", "Catalogo modificado satisfactoriamente");
-define("CATALOG_UPDATE_ERROR", "No fue posible modificar el registro, favor de verificar");
-
+define("CATALOG_ADD_SUCCESS", "Catalog successfully added");
+define("CATALOG_ADD_ERROR", "Can't add catalog item");
+define("CATALOG_UPDATE_SUCCESS", "Catalog successfully updated");
+define("CATALOG_UPDATE_ERROR", "Can't update catalog, please verify again");
