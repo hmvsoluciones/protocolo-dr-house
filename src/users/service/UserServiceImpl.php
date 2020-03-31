@@ -23,11 +23,12 @@ class UserServiceImpl implements UserService {
 
     public function update($data) {
          try {
-            $binnacleData['idReferencia'] = $data['idUser'];
-            $binnacleData['claveTabla'] = 10;
-            $binnacleData['dominioTabla'] = "TABLAS";
-            $binnacleData['claveOperacion'] = 2;
-            $binnacleData['dominioOperacion'] = "CRUD";
+
+            $binnacleData['referenceId'] = $data['idUser'];
+            $binnacleData['tableCatalogKey'] = 10;
+            $binnacleData['tableDomain'] = "TABLAS";
+            $binnacleData['operationCatalogKey'] = 2;
+            $binnacleData['operationDomain'] = "CRUD";
 
             $binnacleData['lastValue'] = json_encode($this->userDao->getUserById($data['idUser']));
             $binnacleData['idUser'] = $_SESSION['user']['IDUSER'];
