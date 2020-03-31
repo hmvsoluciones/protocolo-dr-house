@@ -25,8 +25,8 @@ Protocolo Rueditas de Bici
   ├── sql             # Sql for install the application but remember delete it on production build
   ├── src             # Sql for install the application but remember delete it on production build
   │   ├── module
-  │       ├── dao
-  │       ├── service
+  │       ├── dao     # Access data layer
+  │       ├── service # Bussiness layer
   ├── dashboard.php   # Dashboard container for all modules an views generic dashboard
   ├── index.php       # Main view, login for the app 
   ├── main.js         # Service Worker configuration PWA
