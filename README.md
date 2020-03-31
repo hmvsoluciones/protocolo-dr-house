@@ -13,11 +13,30 @@ Protocolo Rueditas de Bici
   - Start Xammp Server and Run Project
 
 ## Tree Folders
-   
+  ```bash
+  ├── app
+  │   ├── css
+  │   │   ├── **/*.css
+  │   ├── favicon.ico
+  │   ├── images
+  │   ├── index.html
+  │   ├── js
+  │   │   ├── **/*.js
+  │   └── partials/template
+  ├── dist (or build)
+  ├── node_modules
+  ├── bower_components (if using bower)
+  ├── test
+  ├── Gruntfile.js/gulpfile.js
+  ├── README.md
+  ├── package.json
+  ├── bower.json (if using bower)
+  └── .gitignore
+  ```
   - components      # Modules view file, create a new folder for new module for example /components/newModule/index.php.
   - css             # CSS files for all the applicatión.
-  - fonts           # Source files (alternatively `lib` or `app`)
-  - images          # Automated tests (alternatively `spec` or `tests`)
+  - fonts           # Fonts
+  - images          # Project images
   - js              # All javascript librarys and JS app in folder /js/app/module/ js files
   - less            # Custom css file
   - sql             # Sql for install the application but remember delete it on production build
