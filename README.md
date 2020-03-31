@@ -14,7 +14,7 @@ Protocolo Rueditas de Bici
 
 ## Tree Folders
 
-   .
+   ´´´bash
     ├── components      # Modules view file, create a new folder for new module for example /components/newModule/index.php.
     ├── css             # CSS files for all the applicatión.
     ├── fonts           # Source files (alternatively `lib` or `app`)
@@ -29,6 +29,6 @@ Protocolo Rueditas de Bici
     ├── README.md       # 
     ├── roles.php       # Roles view, for role management
     └── sw.js           # Service worker with PWA configuration
-
+    ´´´
 ## License
 www.hmvsoluciones.com
