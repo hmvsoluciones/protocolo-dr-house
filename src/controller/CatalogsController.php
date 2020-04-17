@@ -77,11 +77,11 @@ switch ($op) {
         echo json_encode($response);
 
         break;
-     case "getByCvesRubros":
+     case "getByDomains":
 
-        $rubros = filter_input(INPUT_POST, 'rubros');
+        $domains = filter_input(INPUT_POST, 'domains');
 
-        $response = $catalogService->getByCvesRubros($rubros);
+        $response = $catalogService->getByDomains($domains);
 
         echo json_encode($response);
 

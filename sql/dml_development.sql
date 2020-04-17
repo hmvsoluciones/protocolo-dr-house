@@ -20,13 +20,15 @@ INSERT INTO role(NAME,NAMEEN) VALUES
 INSERT INTO menu(IDROLE, ICONO, MENU, MENUEN) VALUES
 ((SELECT IDROLE from role WHERE NAMEEN LIKE 'ADMIN'), 'fa fa-user', 'Usuarios', 'Users'),
 ((SELECT IDROLE from role WHERE NAMEEN LIKE 'ADMIN'), 'fa fa-book', 'Catálogos', 'Catalogs'),
-((SELECT IDROLE from role WHERE NAMEEN LIKE 'REPORTS'), 'fa fa-user', 'Catálogos', 'Catalogs');
+((SELECT IDROLE from role WHERE NAMEEN LIKE 'REPORTS'), 'fa fa-user', 'Catálogos', 'Catalogs'),
+((SELECT IDROLE from role WHERE NAMEEN LIKE 'ADMIN'), 'fa fa-table', 'Bitácora', 'Binnacle');
 
 
 INSERT INTO submenu(NAME, URL, IDMENU, NAMEEN) VALUES
 ('Admon. Catálogos', 'components/catalogs/index.php', (SELECT IDMENU FROM menu WHERE MENUEN LIKE 'Catalogs'  AND IDROLE  = (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'ADMIN')), 'Admin Catalogs'),
 ('Admon. Usuarios', 'components/users/index.php', (SELECT IDMENU FROM menu WHERE MENUEN LIKE 'Users'  AND IDROLE  = (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'ADMIN')), 'Admin Users'),
-('Admon. Catálogos', 'components/catalogs/index.php', (SELECT IDMENU FROM menu WHERE MENUEN LIKE 'Catalogs'  AND IDROLE  = (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'REPORTS')), 'Admin Catalogs');
+('Admon. Catálogos', 'components/catalogs/index.php', (SELECT IDMENU FROM menu WHERE MENUEN LIKE 'Catalogs'  AND IDROLE  = (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'REPORTS')), 'Admin Catalogs'),
+('Admon. Bitácora', 'components/binnacle/index.php', (SELECT IDMENU FROM menu WHERE MENUEN LIKE 'Binnacle'  AND IDROLE  = (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'ADMIN')), 'Admin Binnacle');
 
 INSERT INTO userroles(IDUSER, IDROLE)VALUES
 ((SELECT IDUSER FROM admuser WHERE user LIKE 'arturomv1930@gmail.com'), (SELECT IDROLE FROM role WHERE NAMEEN LIKE 'ADMIN')),

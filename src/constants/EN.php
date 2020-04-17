@@ -90,3 +90,36 @@ define("CATALOG_ADD_SUCCESS", "Catalog successfully added");
 define("CATALOG_ADD_ERROR", "Can't add catalog item");
 define("CATALOG_UPDATE_SUCCESS", "Catalog successfully updated");
 define("CATALOG_UPDATE_ERROR", "Can't update catalog, please verify again");
+
+//**********************************BINNACLE*************************************************************
+
+define("BINNACLE_MAIN_TITLE", "BITACORA");
+//Modal titles
+/*define("CATALOG_MODAL_ADD_TITLE", "AGREGAR CATALOGO");
+define("CATALOG_MODAL_UPDATE_TITLE", "MODIFICAR CATALOGO");
+//form labels
+
+define("CATALOG_DOMAIN", "Dominio");
+define("CATALOG_KEY", "ID");
+define("CATALOG_VALUEES", "Valor español");
+define("CATALOG_VALUEEN", "Valor inglés");
+define("CATALOG_ORDER", "Orden");
+define("CATALOG_DESCRIPTION", "Descripción");
+define("CATALOG_STATE", "Estatus");
+
+define("CATALOG_TABLE_HEADER", array(
+    "Modificar",
+    CATALOG_KEY,
+    CATALOG_VALUEES,
+    CATALOG_VALUEEN,
+    CATALOG_ORDER,
+    CATALOG_DESCRIPTION,
+    CATALOG_STATE
+    ));
+
+define("CATALOG_ADD_SUCCESS", "Catálogo agregado satisfactoriamente");
+define("CATALOG_ADD_ERROR", "No fue posible agregar el registro, favor de verificar");
+define("CATALOG_UPDATE_SUCCESS", "Catalogo modificado satisfactoriamente");
+define("CATALOG_UPDATE_ERROR", "No fue posible modificar el registro, favor de verificar");
+*/
+

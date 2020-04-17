@@ -59,9 +59,9 @@ class CatalogDaoImpl extends Connection implements CatalogDao {
         return $this->getRow($query);
     }
 
-    public function getByCvesRubros($rubros) {
-        $query = "SELECT idCatalogo, ClaveRubroCATS, ClaveEntidadCATS, EstatusRegistroCATS, DescripcionCATS, ClaveJustificadaCATS, ClasificadorNumerico01CATS, ClasificadorNumerico02CATS, ClasificadorAlfanumerico01CATS, ClasificadorAlfanumerico02CATS, ObservacionesCATS, IDUSERALTA, FechaAltaCATS, IDUSERUPDATE, FechaCambioCATS FROM catalogos "
-                . " WHERE ClaveRubroCATS IN({$rubros}) ORDER BY DescripcionCATS";
+    public function getByDomains($domains) {
+        $query = "SELECT IDCATALOG, DOMAIN, CATALOGKEY, VALUEES, VALUEEN, CATALOGORDER,DESCRIPTION, STATE FROM catalogs "
+                . " WHERE DOMAIN IN({$domains}) ORDER BY CATALOGORDER";
         return $this->getAll($query);
     }
 

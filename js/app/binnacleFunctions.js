@@ -1,67 +1,72 @@
-function getAllRecords() {
-
-    var table = "<table id='reportTable' class='table table-hover'>";
-    $.ajax({
-        url: "src/controller/DoctorsController.php?op=getAllDoctorsTableHeader",
-        type: 'get',
-        dataType: 'json'
-    }).done(function (data) {
-        table += "<thead>";
-        table += "<tr>";
-        $.each(data, function (i, v) {
-            table += "<th>" + v + "</th>";
-        });
-        table += "</tr>";
-        table += "</thead>";
+function binnacleSearch() {
+    if($("#frmBinnacleSearch").validationEngine('validate')){
+        
+        var table = "<table id='reportTable' class='table table-hover'>";
         $.ajax({
-            url: "src/controller/DoctorsController.php?op=getAllDoctors",
+            url: "src/controller/BinnacleController.php?op=getBinnacleTableHeader",
             type: 'get',
-            dataType: 'json'
+            dataType: 'json'           
         }).done(function (data) {
-
-            table += "<tbody>";
+            table += "<thead>";
+            table += "<tr>";
             $.each(data, function (i, v) {
-                console.log(v);
-                var state = (parseInt(v.ESTATUSREGISTRO) === 1) ? "ACTIVO" : "INACTIVO";
-                table += "<tr>";
-                table += "<td><span class='fa fa-pencil iconWarning' onclick='update(" + v.ID + ")'></span></td>";                                
-                table += "<td>" + v.MATRICULAMEDICO  + "</td>";
-                table += "<td>" + state + "</td>"; 
-                table += "<td>" + v.RFC + "</td>";
-                table += "<td>" + v.CURP + "</td>";
-                table += "<td>" + v.CEDULAPROFESIONAL + "</td>";
-                table += "<td>" + v.NOMBRE + "</td>";
-                table += "<td>" + v.APELLIDOPATERNO + "</td>";
-                table += "<td>" + v.APELLIDOMATERNO + "</td>";
-                table += "<td>" + v.CLAVERUBROESPECIALIDAD + "</td>";
-                table += "<td>" + v.CLAVEESPECIALIDAD + "</td>";
-                table += "<td>" + v.TELEFONOS + "</td>";
-                table += "<td>" + v.FECHAINGRESO + "</td>";
-                table += "<td>" + v.OBSERVACIONES + "</td>";
-                table += "<td>" + v.CLAVEUSUARIOALTA + "</td>";
-                table += "<td>" + v.FECHAALTA + "</td>";                
-                table += "</tr>";
+                table += "<th>" + v + "</th>";
             });
+            table += "</tr>";
+            table += "</thead>";
+            $.ajax({
+                url: "src/controller/BinnacleController.php?op=binnacleSearch",
+                type: 'post',
+                dataType: 'json',
+                data: $("#frmBinnacleSearch").serialize()
+            }).done(function (data) {
 
-            table += "</tbody>";
-            table += "</table>";
+                table += "<tbody>";
+                $.each(data, function (i, v) {                                    
+                    table += "<tr>";                    
+                    table += "<td>" + v.IDBINNACLE  + "</td>";
+                    table += "<td>" + v.REFERENCEID + "</td>"; 
+                    table += "<td>" + v.OPERATIONTABLE + "</td>";
+                    table += "<td>" + v.OPERATION + "</td>";
+                    table += "<td>" + v.OPERATIONDATE + "</td>";
+                    table += "<td>" + v.OPERATIONTIME + "</td>";
+                    table += "<td>" + v.NAME+" "+v.LASTNAME+" "+v.LASTNAME2 +"</td>";
+                    table += "<td id='json-render"+i+"' class='json-render'>" + v.LASTVALUE + "</td>";
+                    table += "</tr>";
+                });
 
-            $("#reportContainer").html(table);
+                table += "</tbody>";
+                table += "</table>";
 
-            $('#reportTable').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    {"extend": "copy", "className": "btnDataTable"},
-                    {"extend": "csv", "className": "btnDataTable"},
-                    {"extend": "excel", "className": "btnDataTable"},
-                    {"extend": "pdf", "className": "btnDataTable"},
-                    {"extend": "print", "className": "btnDataTable"}
-//'copy', 'csv', 'excel', 'pdf', 'print'
-                ]
+                $("#reportContainer").html(table);
+
+                $('#reportTable').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        {"extend": "copy", "className": "btnDataTable"},
+                        {"extend": "csv", "className": "btnDataTable"},
+                        {"extend": "excel", "className": "btnDataTable"},
+                        {"extend": "pdf", "className": "btnDataTable"},
+                        {"extend": "print", "className": "btnDataTable"}
+    //'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                });
+
+                $(".json-render").each(function(){			     	
+                    try {
+                        var str = $(this).html();
+                        var data = JSON.parse(str);
+                        var id = $(this).prop('id');
+                        $('#'+id).jsonViewer(data, {collapsed: true, withQuotes: true});			    		
+                        console.log("ok");
+                    } catch(err) {
+                        console.log(err);
+                    }    	               
+               });
+
             });
         });
-    });
-
+    }
 
 }
 

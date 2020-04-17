@@ -18,17 +18,34 @@ class UserServiceImpl implements UserService {
     }
 
     public function add($user) {
-        return $this->userDao->add($user);
+        $addUser = $this->userDao->add($user);
+                
+        if($addUser){
+            $binnacleData['referenceId'] = $addUser;
+            $binnacleData['tableCatalogKey'] = 1;
+            $binnacleData['tableDomain'] = "CAT_TABLES";
+            $binnacleData['operationCatalogKey'] = 1;
+            $binnacleData['operationDomain'] = "CAT_CRUD";
+
+            $binnacleData['lastValue'] = json_encode($this->userDao->getUserById($addUser));
+            $binnacleData['idUser'] = $_SESSION['user']['IDUSER'];
+            
+            $this->binnacleDao->add($binnacleData);
+            
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function update($data) {
          try {
 
             $binnacleData['referenceId'] = $data['idUser'];
-            $binnacleData['tableCatalogKey'] = 10;
-            $binnacleData['tableDomain'] = "TABLAS";
-            $binnacleData['operationCatalogKey'] = 2;
-            $binnacleData['operationDomain'] = "CRUD";
+            $binnacleData['tableCatalogKey'] = 1;
+            $binnacleData['tableDomain'] = "CAT_TABLES";
+            $binnacleData['operationCatalogKey'] = 3;
+            $binnacleData['operationDomain'] = "CAT_CRUD";
 
             $binnacleData['lastValue'] = json_encode($this->userDao->getUserById($data['idUser']));
             $binnacleData['idUser'] = $_SESSION['user']['IDUSER'];

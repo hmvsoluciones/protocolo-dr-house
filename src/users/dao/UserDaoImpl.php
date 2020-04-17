@@ -27,7 +27,7 @@ class UserDaoImpl extends Connection implements UserDao {
                 . " VALUES('{$user['name']}', '{$user['lastName']}', '{$user['lastName2']}', '{$user['mail']}', '{$user['user']}', '{$temporal}', 1)";
 
         if ($this->executeQuery($query)) {
-            return true;
+            return $this->getLastInserId();                
         } else {
             return false;
         }

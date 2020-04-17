@@ -27,7 +27,8 @@ require_once 'src/constants/constants.php';
         <link href="css/custom.css" rel="stylesheet">
         <link href="css/icheck/flat/green.css" rel="stylesheet">
 
-
+        
+        
         <script src="js/jquery.min.js"></script>
 
         <!--[if lt IE 9]>

@@ -89,3 +89,35 @@ define("CATALOG_ADD_ERROR", "No fue posible agregar el registro, favor de verifi
 define("CATALOG_UPDATE_SUCCESS", "Catalogo modificado satisfactoriamente");
 define("CATALOG_UPDATE_ERROR", "No fue posible modificar el registro, favor de verificar");
 
+//**********************************BINNACLE*************************************************************
+
+define("BINNACLE_MAIN_TITLE", "BITÁCORA");
+
+
+define("BINNACLE_ID", "ID");
+define("BINNACLE_REFERENCE_ID", "ID Referencia");
+define("BINNACLE_TABLE", "Tabla");
+define("BINNACLE_OPERATION", "Operación");
+define("BINNACLE_OPERATION_DATE", "Fecha de operación");
+define("BINNACLE_OPERATION_TIME", "Hora de operación");
+define("BINNACLE_LAST_VALUE", "Ultimo Valor");
+define("BINNACLE_OPERATION_USER", "Usuario de operación");
+
+
+define("BINNACLE_TABLE_HEADER", array(    
+    BINNACLE_ID,
+    BINNACLE_REFERENCE_ID,
+    BINNACLE_TABLE,
+    BINNACLE_OPERATION,
+    BINNACLE_OPERATION_DATE,
+    BINNACLE_OPERATION_TIME,
+    BINNACLE_OPERATION_USER,
+    BINNACLE_LAST_VALUE
+    ));
+
+    /*
+define("CATALOG_ADD_SUCCESS", "Catálogo agregado satisfactoriamente");
+define("CATALOG_ADD_ERROR", "No fue posible agregar el registro, favor de verificar");
+define("CATALOG_UPDATE_SUCCESS", "Catalogo modificado satisfactoriamente");
+define("CATALOG_UPDATE_ERROR", "No fue posible modificar el registro, favor de verificar");
+*/

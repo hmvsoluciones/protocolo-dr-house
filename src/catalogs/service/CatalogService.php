@@ -12,7 +12,7 @@ interface CatalogService {
     
     public function update($data);
     
-    public function getByCvesRubros($rubros);
+    public function getByDomains($domains);
     
     public function getCatalogNames();
     

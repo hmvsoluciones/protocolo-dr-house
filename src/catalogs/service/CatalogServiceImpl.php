@@ -27,7 +27,7 @@ class CatalogServiceImpl implements CatalogService {
         try {
 
             $binnacleData['referenceId'] = $data['idCatalogm'];
-            $binnacleData['tableCatalogKey'] = 2;
+            $binnacleData['tableCatalogKey'] = 3;
             $binnacleData['tableDomain'] = "CAT_TABLES";
             $binnacleData['operationCatalogKey'] = 1;
             $binnacleData['operationDomain'] = "CAT_CRUD";
@@ -50,8 +50,8 @@ class CatalogServiceImpl implements CatalogService {
         return $this->catalogDao->getById($id);
     }
 
-    public function getByCvesRubros($rubros) {
-        return $this->catalogDao->getByCvesRubros($rubros);
+    public function getByDomains($rubros) {
+        return $this->catalogDao->getByDomains($rubros);
     }
 
     public function getCatalogNames() {

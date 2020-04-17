@@ -12,7 +12,7 @@ interface CatalogDao {
     
     public function getById($id);
     
-    public function getByCvesRubros($rubros);
+    public function getByDomains($domains);
     
     public function getCatalogNames();    
                
