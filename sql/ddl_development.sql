@@ -8,9 +8,9 @@
  * Created: 11/02/2020
  */
 
-drop database php_monolitic_skeleton;
-create database php_monolitic_skeleton;
-use php_monolitic_skeleton;
+drop database bd_protocolo_dr_house;
+create database bd_protocolo_dr_house;
+use bd_protocolo_dr_house;
 
 CREATE TABLE admuser (
                 IDUSER BIGINT AUTO_INCREMENT NOT NULL,
