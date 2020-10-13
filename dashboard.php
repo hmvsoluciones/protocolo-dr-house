@@ -13,6 +13,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['currentRole'])) {
     header("Location: index.php");
 }
 
+var_dump($_SESSION);
 require_once 'src/constants/constants.php';
 
 $loginServie = new LoginServiceImpl();

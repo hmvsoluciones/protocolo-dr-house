@@ -3,6 +3,19 @@
 @session_destroy();
 
 require_once 'src/constants/constants.php';
+require_once 'libraries/google-auth/gpClientConfig.php';
+
+
+if(isset($_GET['code'])){
+	$gClient->authenticate($_GET['code']);
+	$_SESSION['token'] = $gClient->getAccessToken();
+	header('Location: ' . filter_var($redirectURL, FILTER_SANITIZE_URL));
+}
+
+if (isset($_SESSION['token'])) {
+	$gClient->setAccessToken($_SESSION['token']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -93,7 +106,7 @@ require_once 'src/constants/constants.php';
                                 <input type="password" name="password" class="form-control" placeholder="Password" required="" />
                             </div>
                             <div>
-                                <select class="form-control" name="language">                                    
+                                <select class="form-control" name="language" id="language">                                    
                                     <option value="ES">-Language-</option>
                                     <option value="ES">ES</option>
                                     <option value="EN">EN</option>
@@ -101,7 +114,28 @@ require_once 'src/constants/constants.php';
                             </div>
                             <div>
                                 <br/>
-                                <button type="submit" class="btn btn-default">Login</button>
+                                <button
+                                    type="submit"
+                                    class="btn btn-default"
+                                    style="width: 350px"
+                                >
+                                    Login
+                                </button>
+                                <br />
+                                <br />
+                                <?php
+                                $authUrl = $gClient->createAuthUrl();
+                               echo  '<a href="'.filter_var($authUrl, FILTER_SANITIZE_URL).'">ssss<img src="images/glogin.png" alt=""/></a>';
+                                ?>
+                                <a
+                                    type="submit"
+                                    class="btn btn-default"
+                                    style="color:white; background-color: #F43D25; width: 350px"
+                                    href="<?php echo filter_var($authUrl, FILTER_SANITIZE_URL)?>"
+                                >
+                                    <i class="fa fa-google-plus"></i>
+                                    Google
+                                </a>
                             </div>
                             <div class="clearfix"></div>
                             <div class="separator">                                                                                  
